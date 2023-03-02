@@ -4,7 +4,6 @@ public class Hogwarts {
     private int transgressionDistance;
 
 
-    //Hogwarts[] students = new Hogwarts[3];
 
     public Hogwarts(String name, int magicPower, int transgressionDistance) {
         this.name = name;
@@ -12,6 +11,20 @@ public class Hogwarts {
         this.transgressionDistance = transgressionDistance;
     }
 
+    public static void compare(Hogwarts firstStudent, Hogwarts secondStudent) {
+        if(countSumOfSkills(firstStudent) > countSumOfSkills(secondStudent)) {
+            System.out.println(firstStudent.getName() + "(" + countSumOfSkills(firstStudent) + " points) " +
+                    " is more powerfull than " + secondStudent.getName() + "(" + countSumOfSkills(secondStudent) + " points)" );
+        } else if (countSumOfSkills(firstStudent) < countSumOfSkills(secondStudent)) {
+            System.out.println(firstStudent.getName() + "(" + countSumOfSkills(firstStudent) + " points) " +
+                    " is less powerfull than " + secondStudent.getName() + "(" + countSumOfSkills(secondStudent) + " points)" );
+        }
+    }
+
+    public static int countSumOfSkills(Hogwarts student) {
+        return student.getMagicPower() + student.getTransgressionDistance();
+
+    }
     public int getMagicPower() {
         return magicPower;
     }

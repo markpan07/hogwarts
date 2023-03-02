@@ -12,6 +12,27 @@ public class Griffindor extends Hogwarts {
         this.courage = courage;
     }
 
+    public static Griffindor findBestStudent(Griffindor[] griffindors) {
+        int[] sumOfSkills = new int[3];
+        sumOfSkills = countSumOfSkills(griffindors);
+        int max = sumOfSkills[0];
+        int index = 0;
+        for (int i = 0; i < sumOfSkills.length; i++) {
+            if(sumOfSkills[i] > max) {
+                max = sumOfSkills[i];
+                index = i;
+            }
+        }
+        return griffindors[index];
+    }
+
+    public static int[] countSumOfSkills(Griffindor[] griffindors) {
+        int[] sumOfSkills = new int[griffindors.length];
+        for (int i = 0; i < griffindors.length; i++) {
+            sumOfSkills[i] = griffindors[i].getNobility() + griffindors[i].getHonor() + griffindors[i].getCourage();
+        }
+        return sumOfSkills;
+    }
     public int getNobility() {
         return nobility;
     }
@@ -28,6 +49,7 @@ public class Griffindor extends Hogwarts {
     public String toString() {
         return "Name " + getName() + ","
                 + " Magic Power " + getMagicPower() + ","
+                + " Transgression Distance " + getTransgressionDistance() + ","
                 + "nobility " + getNobility() + ","
                 + "honor " + getHonor() + ","
                 + "courage " + getCourage();

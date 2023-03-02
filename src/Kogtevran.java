@@ -3,7 +3,6 @@ public class Kogtevran extends Hogwarts {
     private int wise;
     private int witty;
 
-    Kogtevran[] students = new Kogtevran[3];
 
     public Kogtevran(String name, int magicPower, int transgressionDistance, int smart, int wise, int witty) {
         super(name, magicPower, transgressionDistance);
@@ -12,6 +11,28 @@ public class Kogtevran extends Hogwarts {
         this.witty = witty;
     }
 
+
+    public static Kogtevran findBestStudent(Kogtevran[] kogtevrans) {
+        int[] sumOfSkills = new int[3];
+        sumOfSkills = countSumOfSkills(kogtevrans);
+        int max = sumOfSkills[0];
+        int index = 0;
+        for (int i = 0; i < sumOfSkills.length; i++) {
+            if(sumOfSkills[i] > max) {
+                max = sumOfSkills[i];
+                index = i;
+            }
+        }
+        return kogtevrans[index];
+    }
+
+    public static int[] countSumOfSkills(Kogtevran[] kogtevrans) {
+        int[] sumOfSkills = new int[kogtevrans.length];
+        for (int i = 0; i < kogtevrans.length; i++) {
+            sumOfSkills[i] = kogtevrans[i].getSmart() + kogtevrans[i].getWise() + kogtevrans[i].getWitty();
+        }
+        return sumOfSkills;
+    }
     public int getSmart() {
         return smart;
     }
@@ -28,6 +49,7 @@ public class Kogtevran extends Hogwarts {
     public String toString() {
         return "Name " + getName() + ","
                 + " Magic Power " + getMagicPower() + ","
+                + " Transgression Distance " + getTransgressionDistance() + ","
                 + "smart " + getSmart() + ","
                 + "wise " + getWise() + ","
                 + "witty " + getWitty();
