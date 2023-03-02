@@ -5,8 +5,8 @@ public class Kogtevran extends Hogwarts {
 
     Kogtevran[] students = new Kogtevran[3];
 
-    public Kogtevran(int magicPower, int transgressionDistance, int smart, int wise, int witty) {
-        super(magicPower, transgressionDistance);
+    public Kogtevran(String name, int magicPower, int transgressionDistance, int smart, int wise, int witty) {
+        super(name, magicPower, transgressionDistance);
         this.smart = smart;
         this.wise = wise;
         this.witty = witty;
@@ -24,6 +24,14 @@ public class Kogtevran extends Hogwarts {
         return witty;
     }
 
+    @Override
+    public String toString() {
+        return "Name " + getName() + ","
+                + " Magic Power " + getMagicPower() + ","
+                + "smart " + getSmart() + ","
+                + "wise " + getWise() + ","
+                + "witty " + getWitty();
+    }
 }
 
-}
+

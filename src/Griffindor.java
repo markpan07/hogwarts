@@ -3,9 +3,10 @@ public class Griffindor extends Hogwarts {
     private int honor;
     private int courage;
 
-    Griffindor[] students = new Griffindor[3];
-    public Griffindor(int magicPower, int transgressionDistance, int nobility, int honor, int courage) {
-        super(magicPower, transgressionDistance);
+
+    //Griffindor[] students = new Griffindor[3];
+    public Griffindor(String name, int magicPower, int transgressionDistance, int nobility, int honor, int courage) {
+        super(name, magicPower, transgressionDistance);
         this.nobility = nobility;
         this.honor = honor;
         this.courage = courage;
@@ -23,4 +24,12 @@ public class Griffindor extends Hogwarts {
         return courage;
     }
 
+    @Override
+    public String toString() {
+        return "Name " + getName() + ","
+                + " Magic Power " + getMagicPower() + ","
+                + "nobility " + getNobility() + ","
+                + "honor " + getHonor() + ","
+                + "courage " + getCourage();
+    }
 }
