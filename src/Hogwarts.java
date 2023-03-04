@@ -1,5 +1,5 @@
 import java.util.Random;
-import java.util.Arrays;
+
 public class Hogwarts {
     private String name;
     private int magicPower;
@@ -13,20 +13,25 @@ public class Hogwarts {
         this.transgressionDistance = random.nextInt(100);
     }
 
-    public static void compare(Hogwarts firstStudent, Hogwarts secondStudent) {
-        if(countSumOfSkills(firstStudent) > countSumOfSkills(secondStudent)) {
-            System.out.println(firstStudent.getName() + "(" + countSumOfSkills(firstStudent) + " points) " +
-                    " is more powerfull than " + secondStudent.getName() + "(" + countSumOfSkills(secondStudent) + " points)" );
-        } else if (countSumOfSkills(firstStudent) < countSumOfSkills(secondStudent)) {
-            System.out.println(firstStudent.getName() + "(" + countSumOfSkills(firstStudent) + " points) " +
-                    " is less powerfull than " + secondStudent.getName() + "(" + countSumOfSkills(secondStudent) + " points)" );
+    public String compareBasicSkills(Hogwarts student) {
+        if (student.countSumOfSkills() > this.countSumOfSkills()) {
+            return student.getName() + "(" + student.countSumOfSkills() + " points) " +
+                    " is more powerfull than " + this.getName() + "(" + this.countSumOfSkills() + " points)";
+        } else if (student.countSumOfSkills() < this.countSumOfSkills()) {
+            return this.getName() + "(" + this.countSumOfSkills() + " points) " +
+                    " is more powerfull than " + student.getName() + "(" + student.countSumOfSkills() + " points)";
+        } else {
+            return this.getName() + "(" + this.countSumOfSkills() + " points) " + "and " +
+                    student.getName() + "(" + student.countSumOfSkills() + " points) " + " are equal";
+
         }
     }
 
-    public static int countSumOfSkills(Hogwarts student) {
-        return student.getMagicPower() + student.getTransgressionDistance();
+    private int countSumOfSkills() {
+        return this.getMagicPower() + this.getTransgressionDistance();
 
     }
+
     public int getMagicPower() {
         return magicPower;
     }

@@ -42,8 +42,8 @@ public class Main {
         System.out.println(kogtevrans[2]);
         System.out.println(Arrays.toString(Kogtevran.countSumOfSkills(kogtevrans)));
         System.out.println(Kogtevran.findBestStudent(kogtevrans));
-        Hogwarts.compare(slytherins[0], kogtevrans[0]);
         System.out.println(slytherins[0].compare(slytherins[1])); //test of compare method
+        System.out.println(slytherins[0].compareBasicSkills(slytherins[1]));
     }
 
 }
