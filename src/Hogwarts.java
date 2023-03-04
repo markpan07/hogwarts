@@ -1,14 +1,16 @@
+import java.util.Random;
+import java.util.Arrays;
 public class Hogwarts {
     private String name;
     private int magicPower;
     private int transgressionDistance;
 
+    Random random = new Random();
 
-
-    public Hogwarts(String name, int magicPower, int transgressionDistance) {
+    public Hogwarts(String name) {
         this.name = name;
-        this.magicPower = magicPower;
-        this.transgressionDistance = transgressionDistance;
+        this.magicPower = random.nextInt(100);
+        this.transgressionDistance = random.nextInt(100);
     }
 
     public static void compare(Hogwarts firstStudent, Hogwarts secondStudent) {

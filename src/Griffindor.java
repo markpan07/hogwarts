@@ -1,15 +1,18 @@
+import java.util.Arrays;
+import java.util.Random;
+
 public class Griffindor extends Hogwarts {
     private int nobility;
     private int honor;
     private int courage;
 
+    Random random = new Random();
 
-    //Griffindor[] students = new Griffindor[3];
-    public Griffindor(String name, int magicPower, int transgressionDistance, int nobility, int honor, int courage) {
-        super(name, magicPower, transgressionDistance);
-        this.nobility = nobility;
-        this.honor = honor;
-        this.courage = courage;
+    public Griffindor(String name) {
+        super(name);
+        this.nobility = random.nextInt(100);
+        this.honor = random.nextInt(100);
+        this.courage = random.nextInt(100);
     }
 
     public static Griffindor findBestStudent(Griffindor[] griffindors) {
@@ -18,7 +21,7 @@ public class Griffindor extends Hogwarts {
         int max = sumOfSkills[0];
         int index = 0;
         for (int i = 0; i < sumOfSkills.length; i++) {
-            if(sumOfSkills[i] > max) {
+            if (sumOfSkills[i] > max) {
                 max = sumOfSkills[i];
                 index = i;
             }
@@ -33,6 +36,7 @@ public class Griffindor extends Hogwarts {
         }
         return sumOfSkills;
     }
+
     public int getNobility() {
         return nobility;
     }

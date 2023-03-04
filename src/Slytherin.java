@@ -1,3 +1,5 @@
+import java.util.Random;
+import java.util.Arrays;
 public class Slytherin extends Hogwarts{
     private int cunning;
     private int susceptibility;
@@ -5,16 +7,16 @@ public class Slytherin extends Hogwarts{
     private int resourcefulness;
     private int lustForPower;
 
-
+    Random random = new Random();
     //Slytherin[] students = new Slytherin[3];
 
-    public Slytherin(String name, int magicPower, int transgressionDistance, int cunning, int susceptibility, int impregnability, int resourcefulness, int lustForPower) {
-        super(name, magicPower, transgressionDistance);
-        this.cunning = cunning;
-        this.susceptibility = susceptibility;
-        this.impregnability = impregnability;
-        this.resourcefulness = resourcefulness;
-        this.lustForPower = lustForPower;
+    public Slytherin(String name) {
+        super(name);
+        this.cunning = random.nextInt(100);
+        this.susceptibility = random.nextInt(100);
+        this.impregnability = random.nextInt(100);
+        this.resourcefulness = random.nextInt(100);
+        this.lustForPower = random.nextInt(100);
     }
 
     public static Slytherin findBestStudent(Slytherin[] slytherins) {
@@ -40,7 +42,9 @@ public class Slytherin extends Hogwarts{
         return sumOfSkills;
     }
 
-
+    private Slytherin compare(Slytherin student) {
+        return null;
+    }
 
     public int getCunning() {
         return cunning;

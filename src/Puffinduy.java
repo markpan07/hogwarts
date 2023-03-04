@@ -1,15 +1,18 @@
+import java.util.Random;
+import java.util.Arrays;
+
 public class Puffinduy extends Hogwarts {
     private int hardworking;
     private int loyal;
     private int honest;
 
+    Random random = new Random();
 
-
-    public Puffinduy(String name, int magicPower, int transgressionDistance, int hardworking, int loyal, int honest) {
-        super(name, magicPower, transgressionDistance);
-        this.hardworking = hardworking;
-        this.loyal = loyal;
-        this.honest = honest;
+    public Puffinduy(String name) {
+        super(name);
+        this.hardworking = random.nextInt(100);
+        this.loyal = random.nextInt(100);
+        this.honest = random.nextInt(100);
     }
 
     public static Puffinduy findBestStudent(Puffinduy[] puffinduys) {
@@ -18,7 +21,7 @@ public class Puffinduy extends Hogwarts {
         int max = sumOfSkills[0];
         int index = 0;
         for (int i = 0; i < sumOfSkills.length; i++) {
-            if(sumOfSkills[i] > max) {
+            if (sumOfSkills[i] > max) {
                 max = sumOfSkills[i];
                 index = i;
             }
@@ -33,6 +36,7 @@ public class Puffinduy extends Hogwarts {
         }
         return sumOfSkills;
     }
+
     @Override
     public String toString() {
         return "Name " + getName() + ","

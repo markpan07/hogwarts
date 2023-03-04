@@ -1,14 +1,17 @@
+import java.util.Random;
+import java.util.Arrays;
+
 public class Kogtevran extends Hogwarts {
     private int smart;
     private int wise;
     private int witty;
 
-
-    public Kogtevran(String name, int magicPower, int transgressionDistance, int smart, int wise, int witty) {
-        super(name, magicPower, transgressionDistance);
-        this.smart = smart;
-        this.wise = wise;
-        this.witty = witty;
+    Random random = new Random();
+    public Kogtevran(String name) {
+        super(name);
+        this.smart = random.nextInt(100);
+        this.wise = random.nextInt(100);
+        this.witty = random.nextInt(100);
     }
 
 
@@ -18,7 +21,7 @@ public class Kogtevran extends Hogwarts {
         int max = sumOfSkills[0];
         int index = 0;
         for (int i = 0; i < sumOfSkills.length; i++) {
-            if(sumOfSkills[i] > max) {
+            if (sumOfSkills[i] > max) {
                 max = sumOfSkills[i];
                 index = i;
             }
@@ -33,6 +36,7 @@ public class Kogtevran extends Hogwarts {
         }
         return sumOfSkills;
     }
+
     public int getSmart() {
         return smart;
     }
