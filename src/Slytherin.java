@@ -1,6 +1,6 @@
 import java.util.Random;
-import java.util.Arrays;
-public class Slytherin extends Hogwarts{
+
+public class Slytherin extends Hogwarts {
     private int cunning;
     private int susceptibility;
     private int impregnability;
@@ -21,11 +21,11 @@ public class Slytherin extends Hogwarts{
 
     public static Slytherin findBestStudent(Slytherin[] slytherins) {
         int[] sumOfSkills = new int[3];
-        sumOfSkills = countSumOfSkills(slytherins);
+        sumOfSkills = countSumOfSkillsForEachStudent(slytherins);
         int max = sumOfSkills[0];
         int index = 0;
         for (int i = 0; i < sumOfSkills.length; i++) {
-            if(sumOfSkills[i] > max) {
+            if (sumOfSkills[i] > max) {
                 max = sumOfSkills[i];
                 index = i;
             }
@@ -33,7 +33,7 @@ public class Slytherin extends Hogwarts{
         return slytherins[index];
     }
 
-    public static int[] countSumOfSkills(Slytherin[] slytherins) {
+    public static int[] countSumOfSkillsForEachStudent(Slytherin[] slytherins) {
         int[] sumOfSkills = new int[slytherins.length];
         for (int i = 0; i < slytherins.length; i++) {
             sumOfSkills[i] = slytherins[i].getCunning() + slytherins[i].getSusceptibility() + slytherins[i].getImpregnability()
@@ -42,8 +42,26 @@ public class Slytherin extends Hogwarts{
         return sumOfSkills;
     }
 
-    private Slytherin compare(Slytherin student) {
-        return null;
+    public int countSumOfFacultySkills() {
+        int sum = this.getCunning() + this.getSusceptibility() + this.getImpregnability()
+                + this.getResourcefulness() + this.getLustForPower();
+        return sum;
+    }
+
+
+    public String compare(Slytherin student) {
+        int skillOfThisStudent;
+        int skillOfParametrStudent;
+        skillOfThisStudent = this.countSumOfFacultySkills();
+        skillOfParametrStudent = student.countSumOfFacultySkills();
+        if(skillOfParametrStudent > skillOfThisStudent) {
+            return student.getName() + " is better Slytherin's than " + this.getName();
+        } else if (skillOfParametrStudent < skillOfThisStudent) {
+            return this.getName() + " is better Slytherin's than " + student.getName();
+        } else {
+            return this.getName() + " and " + student.getName() + " are equal";
+        }
+
     }
 
     public int getCunning() {
